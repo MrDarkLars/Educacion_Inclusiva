@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemáticas Básicas</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(to bottom, #f0f4f8, #e3eaf2); 
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #003366, #0055aa);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 { margin: 0; font-size: 2.4em; }
+        h2 { color: #003366; border-bottom: 3px solid #0055aa; padding-bottom: 8px; }
+        
+        .leccion { 
+            padding: 25px;
+            margin: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .btn {
+            padding: 12px 22px;
+            margin: 8px;
+            font-size: 16px;
+            border: 2px solid #6c757d;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #f8f9fa;
+            color: #333;
+            font-weight: 500;
+        }
+        .btn:hover {
+            background-color: #e9ecef;
+        }
+        .btn-primary {
+            background-color: #003366;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0055aa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📐 Matemáticas Básicas</h1>
+            <p>Curso Adaptado</p>
+        </header>
+
+        <div style="text-align: center; padding: 15px; background: #f8f9fa;">
+            <button class="btn" onclick="aumentarTexto()">🔎 Aumentar Texto</button>
+            <button class="btn" onclick="disminuirTexto()">🔍 Disminuir Texto</button>
+        </div>
+
+        <div class="leccion">
+            <h2>Lección 1: Números del 1 al 10</h2>
+            <ul>
+                <li><strong>1</strong> → Uno</li>
+                <li><strong>2</strong> → Dos</li>
+                <li><strong>3</strong> → Tres</li>
+                <li><strong>4</strong> → Cuatro</li>
+                <li><strong>5</strong> → Cinco</li>
+                <li><strong>6</strong> → Seis</li>
+                <li><strong>7</strong> → Siete</li>
+                <li><strong>8</strong> → Ocho</li>
+                <li><strong>9</strong> → Nueve</li>
+                <li><strong>10</strong> → Diez</li>
+            </ul>
+            <button class="btn" onclick="leerSeccion('numeros')">🔊 Leer Números</button>
+        </div>
+
+        <div class="leccion">
+            <h2>Lección 2: Suma Básica</h2>
+            <p>Ejemplos sencillos:</p>
+            <ul>
+                <li>2 + 3 = <strong>5</strong></li>
+                <li>4 + 1 = <strong>5</strong></li>
+                <li>3 + 6 = <strong>9</strong></li>
+                <li>5 + 5 = <strong>10</strong></li>
+            </ul>
+            <button class="btn" onclick="leerSeccion('suma')">🔊 Leer Suma Básica</button>
+        </div>
+
+        <div class="leccion">
+            <h2>Lección 3: Actividad Final</h2>
+            <p>Resuelve estas sumas:</p>
+            <ul>
+                <li>1 + 4 = <strong>?</strong></li>
+                <li>3 + 2 = <strong>?</strong></li>
+                <li>7 + 2 = <strong>?</strong></li>
+            </ul>
+            <button class="btn" onclick="leerSeccion('actividad')">🔊 Leer Actividad</button>
+        </div>
+
+        <div style="text-align: center; padding: 25px;">
+            <button class="btn btn-primary" onclick="window.close()">Cerrar Curso</button>
+        </div>
+    </div>
+
+    <script>
+        let tamaño = 16;
+        function aumentarTexto() {
+            tamaño += 2;
+            document.body.style.fontSize = tamaño + "px";
+        }
+        function disminuirTexto() {
+            if(tamaño > 12) tamaño -= 2;
+            document.body.style.fontSize = tamaño + "px";
+        }
+
+        function leerSeccion(seccion) {
+            let texto = "";
+
+            if (seccion === "numeros") {
+                texto = "Números del uno al diez. Uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez.";
+            } 
+            else if (seccion === "suma") {
+                texto = "Ejemplos de suma básica. Dos más tres es cinco. Cuatro más uno es cinco. Tres más seis es nueve. Cinco más cinco es diez.";
+            } 
+            else if (seccion === "actividad") {
+                texto = "Actividad final. Resuelve estas sumas. Uno más cuatro es cinco.";
+            }
+
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(texto);
+                utterance.lang = 'es-ES';
+                utterance.rate = 0.92;
+                speechSynthesis.speak(utterance);
+            } else {
+                alert("Tu navegador no soporta el lector de voz.");
+            }
+        }
+    </script>
+</body>
+</html>
