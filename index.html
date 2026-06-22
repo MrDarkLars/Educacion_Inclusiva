@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccesEdu | Plataforma Inclusiva</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #003366, #0055aa);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #003366;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { margin: 0; font-size: 2.8em; }
+        h2 { color: #003366; border-bottom: 3px solid #0055aa; padding-bottom: 10px; }
+        
+        .btn {
+            padding: 12px 20px;
+            margin: 8px;
+            font-size: 16px;
+            border: 2px solid #6c757d;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #f8f9fa;
+            color: #333;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background-color: #003366;
+            color: white;
+            border: none;
+        }
+        .btn:hover {
+            background-color: #e9ecef;
+        }
+        .btn-primary:hover {
+            background-color: #0055aa;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card h3 {
+            color: #003366;
+        }
+
+        form {
+            max-width: 700px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            background-color: #003366;
+            color: white;
+            padding: 12px 30px;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0055aa;
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Educación Inclusiva</h1>
+        <p>Plataforma Digital Accesible para Estudiantes con Discapacidad</p>
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#encuesta">Encuesta</a>
+    </nav>
+
+    <main>
+        <h2>Objetivo General</h2>
+        <p><strong>Desarrollar una plataforma digital educativa accesible</strong> que fomente la participación autónoma y el aprendizaje equitativo de los estudiantes con discapacidad.</p>
+        <button class="btn" onclick="leerSeccion('objetivo')">🔊 Leer Objetivo</button>
+
+        <h2>Identificación de Barreras de Accesibilidad</h2>
+        <p><strong>Objetivo Específico:</strong> Identificar las barreras de accesibilidad que enfrentan los estudiantes con discapacidad en las plataformas actuales para definir los requerimientos técnicos necesarios.</p>
+        
+        <p>Durante el diagnóstico se identificaron las principales barreras que limitan el acceso a la educación virtual:</p>
+        <ul>
+            <li><strong>Barreras Visuales:</strong> Falta de texto alternativo en imágenes, bajo contraste y tamaños de letra inadecuados.</li>
+            <li><strong>Barreras Auditivas:</strong> Videos y audios sin subtítulos ni transcripciones.</li>
+            <li><strong>Barreras Motoras:</strong> Interfaces que no permiten navegación por teclado ni comandos de voz.</li>
+            <li><strong>Barreras Cognitivas:</strong> Lenguaje complejo, navegación confusa y falta de instrucciones claras.</li>
+        </ul>
+        <button class="btn" onclick="leerSeccion('barreras')">🔊 Leer Barreras</button>
+
+        <h2>Opciones de Accesibilidad</h2>
+        <button class="btn" onclick="aumentarTexto()">🔎 Aumentar Texto</button>
+        <button class="btn" onclick="disminuirTexto()">🔍 Disminuir Texto</button>
+        <button class="btn" onclick="leerSeccion('accesibilidad')">🔊 Leer Opciones</button>
+
+        <h2>Funcionalidades Inclusivas</h2>
+        <ul>
+            <li>Compatible con lectores de pantalla</li>
+            <li>Navegación completa por teclado</li>
+            <li>Texto alternativo en imágenes</li>
+            <li>Diseño adaptable (Responsive)</li>
+            <li>Opciones de tamaño de letra</li>
+        </ul>
+
+        <h2 id="cursos">Cursos Disponibles</h2>
+        <button class="btn" onclick="leerSeccion('cursos')">🔊 Leer Cursos Disponibles</button>
+        <div class="grid">
+            <div class="card">
+                <h3>Matemáticas Básicas</h3>
+                <p>Aprende los números y operaciones fundamentales.</p>
+                <button class="btn btn-primary" onclick="iniciarCurso(1)">Iniciar Curso</button>
+            </div>
+            <div class="card">
+                <h3>Lenguaje y Comunicación</h3>
+                <p>Aprende a comunicarte de manera efectiva con apoyo accesible.</p>
+                <button class="btn btn-primary" onclick="iniciarCurso(2)">Iniciar Curso</button>
+            </div>
+            <div class="card">
+                <h3>Habilidades Digitales</h3>
+                <p>Aprende a usar la plataforma de manera efectiva.</p>
+                <button class="btn btn-primary" onclick="iniciarCurso(3)">Iniciar Curso</button>
+            </div>
+        </div>
+
+        <h2 id="encuesta">Encuesta de Satisfacción</h2>
+        <button class="btn" onclick="leerSeccion('encuesta')">🔊 Leer Instrucciones de Encuesta</button>
+        <p>Por favor, ayúdanos a mejorar respondiendo esta encuesta:</p>
+
+        <form id="encuestaForm" onsubmit="enviarEncuesta(event)">
+            <label>Nombres y Apellidos del Estudiante *</label>
+            <input type="text" required>
+
+            <label>Nombres y Apellidos del Tutor *</label>
+            <input type="text" required>
+
+            <label>Edad del Estudiante *</label>
+            <input type="number" min="5" max="60" required>
+
+            <label>Tipo de Discapacidad *</label>
+            <select required>
+                <option value="">Seleccione una opción</option>
+                <option value="Visual">Discapacidad Visual</option>
+                <option value="Auditiva">Discapacidad Auditiva</option>
+                <option value="Motora">Discapacidad Motora</option>
+                <option value="Otra">Otra</option>
+            </select>
+
+            <label>¿Cómo te ha ayudado esta plataforma en tu educación? (1-10) *</label>
+            <input type="range" min="1" max="10" value="8" oninput="this.nextElementSibling.value = this.value">
+            <output>8</output>
+
+            <label>¿Qué aspecto te gustó más de la plataforma?</label>
+            <textarea rows="3" placeholder="Ej: Los botones de accesibilidad, el tamaño de letra, la navegación..."></textarea>
+
+            <label>¿Recomendarías esta plataforma a otros estudiantes con discapacidad?</label>
+            <select>
+                <option value="Sí">Sí, definitivamente</option>
+                <option value="Probablemente">Probablemente</option>
+                <option value="No estoy seguro">No estoy seguro</option>
+                <option value="No">No</option>
+            </select>
+
+            <label>¿Cómo podría mejorar la plataforma? *</label>
+            <input type="text" required>
+
+            <br>
+            <button type="submit" class="btn">Enviar Encuesta</button>
+        </form>
+    </main>
+
+    <script>
+        let tamaño = 16;
+
+        function aumentarTexto() {
+            tamaño += 2;
+            document.body.style.fontSize = tamaño + "px";
+        }
+
+        function disminuirTexto() {
+            if(tamaño > 12) tamaño -= 2;
+            document.body.style.fontSize = tamaño + "px";
+        }
+
+        function enviarEncuesta(e) {
+            e.preventDefault();
+            alert("¡Encuesta enviada con éxito! \n\nGracias por tu respuesta. Tus comentarios nos ayudan a mejorar la plataforma.");
+            e.target.reset();
+        }
+
+        function iniciarCurso(curso) {
+            let url = "";
+            if (curso === 1) url = "curso-matematicas.html";
+            else if (curso === 2) url = "curso-lenguaje.html";
+            else if (curso === 3) url = "curso-habilidades.html";
+            window.open(url, "_blank");
+        }
+
+        function leerSeccion(seccion) {
+            let texto = "";
+
+            if (seccion === "objetivo") {
+                texto = "Objetivo General. Desarrollar una plataforma digital educativa accesible que fomente la participación autónoma y el aprendizaje equitativo de los estudiantes con discapacidad.";
+            } 
+            else if (seccion === "barreras") {
+                texto = "Se identificaron las siguientes barreras: Barreras Visuales, Barreras Auditivas, Barreras Motoras y Barreras Cognitivas.";
+            } 
+            else if (seccion === "accesibilidad") {
+                texto = "Opciones de accesibilidad disponibles. Puedes aumentar o disminuir el tamaño del texto según tus necesidades.";
+            } 
+            else if (seccion === "cursos") {
+                texto = "Cursos Disponibles: Matemáticas Básicas, Lenguaje y Comunicación, y Habilidades Digitales.";
+            } 
+            else if (seccion === "encuesta") {
+                texto = "Sección de Encuesta de Satisfacción. Ayúdanos a mejorar respondiendo las preguntas.";
+            }
+
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(texto);
+                utterance.lang = 'es-ES';
+                utterance.rate = 0.95;
+                speechSynthesis.speak(utterance);
+            } else {
+                alert("Tu navegador no soporta el lector de voz.");
+            }
+        }
+    </script>
+</body>
+</html>
